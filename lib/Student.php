@@ -58,12 +58,10 @@
                 }elseif($attend_value == "absent") {
                     $query = "INSERT INTO tbl_attendance(roll,attend,attend_time) VALUES('$attend_key','absent','$cur_date')";
                     $attendance_insert= $this->db->insert($query);
-                }else {
-                     return "<div class='alert alert-danger'>Error !<strong> Please fill up the attendance form correctly . </strong></div>";
                 }
             }
 
-            if ($attendance_insert) {
+            if (isset($attendance_insert)) {
                     return "<div class='alert alert-success'>Success !<strong> Attendance data inserted successfully. </strong></div>";
                 }else {
                     return "<div class='alert alert-danger'>Error !<strong> Attendance data not inserted. </strong></div>";

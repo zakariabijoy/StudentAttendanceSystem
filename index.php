@@ -2,6 +2,21 @@
     require_once ("include/header.php");
     require_once ("lib/Student.php");
 ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("form").submit(function(){
+            var roll =true;
+            $(":radio").each(function() {
+                var name = $(this).attr("name");
+                if (roll && !$(':radio[name="' +name+ '"]:checked').length) {
+                    $(".alert").show();
+                    roll =false;
+                }
+            })
+            return roll;
+        });
+    });
+</script>
 <?php
     $stu = new Student();
     $cur_date = new DateTime('now', new DateTimezone('Asia/Dhaka'));
@@ -19,7 +34,7 @@
         echo  $insertAttend;
     }
 ?>
-
+<div class='alert alert-danger' style="display:none">Error !<strong> Student Roll Missing. </strong></div>
         <div class="card card-default">
             <div class="card-header ">
                 <h2>
