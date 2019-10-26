@@ -70,5 +70,13 @@
                 }
 
         }
+
+        public function getDateList(){
+            $query = "SELECT DISTINCT attend_time from tbl_attendance";
+            $result = $this->db->select($query);
+            return $result;
+        }
+
+
     }
 ?>
