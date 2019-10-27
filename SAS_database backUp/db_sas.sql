@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2019 at 10:06 PM
+-- Generation Time: Oct 27, 2019 at 08:46 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -40,11 +40,14 @@ CREATE TABLE `tbl_attendance` (
 --
 
 INSERT INTO `tbl_attendance` (`id`, `roll`, `attend`, `attend_time`) VALUES
-(1, 143000112, 'present', '2019-10-27'),
-(2, 143001912, 'absent', '2019-10-27'),
-(3, 143000110, 'present', '2019-10-26'),
-(4, 153000112, 'absent', '2019-10-26'),
-(5, 14300111, 'present', '2019-10-27');
+(80, 143000112, 'present', '2019-10-27'),
+(81, 143001912, 'absent', '2019-10-27'),
+(82, 143000112, 'present', '2019-10-28'),
+(83, 143001912, 'present', '2019-10-28'),
+(84, 143000110, 'present', '2019-10-28'),
+(85, 153000112, 'absent', '2019-10-28'),
+(86, 14300111, 'present', '2019-10-28'),
+(87, 143000812, 'absent', '2019-10-28');
 
 -- --------------------------------------------------------
 
@@ -94,7 +97,7 @@ ALTER TABLE `tbl_student`
 -- AUTO_INCREMENT for table `tbl_attendance`
 --
 ALTER TABLE `tbl_attendance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `tbl_student`
