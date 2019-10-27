@@ -25,16 +25,19 @@
                 $msg= "<div class='alert alert-danger'>Error !<strong>Field must not be empty ! </strong></div>";
                 return $msg;
             }else {
-                $query = "INSERT INTO tbl_student(name, roll) VALUES('$name','$roll')";
+                $query = "SELECT * FROM tbl_student WHERE roll = '$roll'";
+                $stu_select =$this->db->select($query);
+                if($stu_select){
+                    return "<div class='alert alert-danger'>Error !<strong> Student already existed. </strong></div>";
+                }else {
+                    $query = "INSERT INTO tbl_student(name, roll) VALUES('$name','$roll')";
                 $stu_insert= $this->db->insert($query);
-
                 if ($stu_insert) {
                     return "<div class='alert alert-success'>Success !<strong> Student data inserted successfully. </strong></div>";
                 }else {
                     return "<div class='alert alert-danger'>Error !<strong> Student data not inserted. </strong></div>";
                 }
-
-                
+                }
             }
             
 
