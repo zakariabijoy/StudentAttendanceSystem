@@ -4,7 +4,7 @@
 ?>
 <?php
     $cur_date = new DateTime('now', new DateTimezone('Asia/Dhaka'));
-    $cur_date = $cur_date->format("d-m-y");
+    $cur_date = $cur_date->format("Y-m-d");
 ?>
 
 
@@ -54,6 +54,7 @@
 ?>
                         
                     </table>
+                    
                 </form>
 
             </div>

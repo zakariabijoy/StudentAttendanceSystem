@@ -75,6 +75,44 @@
             return $result;
         }
 
+        public function getAllData($dt){
+            $query = "SELECT tbl_student.name, tbl_attendance.*
+                     FROM tbl_student
+                     INNER JOIN tbl_attendance
+                     ON tbl_student.roll = tbl_attendance.roll
+                     WHERE attend_time = '$dt'";
+            $result = $this->db->select($query);
+            return $result;
+        }
+
+        public function updateAttendance($dt,$attend){
+
+             foreach ($attend as $attend_key => $attend_value) {
+                if ($attend_value == "present") {
+                    $query = "UPDATE tbl_attendance
+                              SET attend = 'present'
+                              where roll = '$attend_key' AND attend_time = '$dt'  
+                             ";
+                    $attendance_update= $this->db->update($query);
+
+                }elseif($attend_value == "absent") {
+                   $query = "UPDATE tbl_attendance
+                              SET attend = 'absent'
+                              where roll = '$attend_key' AND attend_time = '$dt'  
+                             ";
+                    $attendance_update= $this->db->update($query);
+                }
+            }
+
+            if (isset($attendance_update)) {
+                    return "<div class='alert alert-success'>Success !<strong> Attendance data  updated successfully. </strong></div>";
+                }else {
+                    return "<div class='alert alert-danger'>Error !<strong> Attendance data not updated. </strong></div>";
+                }
+
+        }
+        
+
 
     }
 ?>
